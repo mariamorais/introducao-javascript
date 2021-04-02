@@ -102,5 +102,17 @@ function exibeMensagensDeErro(erros) {
 function adicionaPacienteNaTabela(paciente) {
     var pacienteTr = montaTr(paciente);
     var tabela = document.querySelector("#tabela-pacientes");
-    tabela.appendChild(pacienteTr);
-}
+    var itenstabela = document.querySelectorAll(".info-nome");
+    var x = 0;
+    for (var i = 0; i < itenstabela.length; i++) { //compara se tem paciente repetido
+        var item = itenstabela[i];
+        var pesquisa = item.textContent;
+        if (pacienteTr.querySelector('.info-nome').textContent === pesquisa) {
+            x = 1;
+            console.log("Paciente já cadastrado");
+        };
+    };
+    if (x == 0){
+        tabela.appendChild(pacienteTr);
+    };
+};

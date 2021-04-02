@@ -13,9 +13,15 @@ botaoAdicionar.addEventListener("click", function() {
             var resposta = xhr.responseText;
             var pacientes = JSON.parse(resposta);
 
+
             pacientes.forEach(function(paciente) {
+                pacientes.nome != paciente.nome
+                
                 adicionaPacienteNaTabela(paciente);
             });
+    
+        
+        
         } else {
             erroAjax.classList.remove("invisivel");
         }
